@@ -1,5 +1,13 @@
 body {
   color: white;
   font-family: Helvetica;
-  background: #002533
+  font-size: 16px;
+  background: #002533;
+}
+
+footer {
+  color: #002533;
+  font-family: Arial:;
+  font-size: 12px;
+  background: white;
 }
