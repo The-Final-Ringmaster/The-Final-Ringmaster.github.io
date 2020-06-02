@@ -5,6 +5,11 @@ body {
   background: #002533;
 }
 
+h1, h2, h3 {
+  color: teal;
+  font-family: Courier New;
+}
+
 footer {
   font-color: #002533;
   font-family: Arial:;
