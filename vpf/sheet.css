@@ -1,0 +1,23 @@
+@font-face {font-family: segoi; src:url(segoeuil.ttf); font-style: normal;}
+@font-face {font-family: segoi; src:url(seguibl.ttf); font-style: oblique;}
+@font-face {font-family: segoi; src:url(seguili.ttf); font-style: italic}
+@font-face {font-family: vcr; src:url(VCR_OSD_MONO.ttf); }
+
+hr { margin-left: 0px; margin-top: 50px; margin-bottom: 50px; color: white;}
+
+body {
+  color: white;
+  background-color: #15202B;
+  font-family: segoi;
+  margin-left: 27;
+  margin-bottom: 54;
+}
+
+a {color: #9cfff2; font-style: italic; text-decoration: none;}
+h1 {font-size: 34px; margin-top: 20}
+h3 {font-size: 25px;}
+h6 {font-size: 12px;}
+header {background-color: black; padding: 20px; color: orange; font-family: vcr;}
+
+td {color: orange;}
+p.headers {margin-left: 20; padding-left: 20;}

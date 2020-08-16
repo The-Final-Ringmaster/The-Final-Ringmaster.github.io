@@ -1,0 +1,87 @@
+﻿<head>
+<title>VPF: Writing a Worthless Crypto</title>
+<link rel="stylesheet" type="text/css" href="../sheet.css">
+</head>
+
+<body>
+  <header>
+    <table>
+      <tr>
+        <td><img src="logo.png" alt="Versatile Project Format"></td>
+        <td><h2>Versatile Project Format</h2></td>
+      </tr>
+    </table>
+    <p><a href="https://miko1112.github.io/vpf">Home</a> <a href="https://miko1112.github.io/vpf/tuts.html">Tuts</a></p>
+  </header>
+  <h1 id="writing-a-worthless-cryptocurrency-with-python">Writing a Worthless Cryptocurrency with Python</h1>
+  <h6 id="by-mj-minkus"><em>By Mj Minkus</em></h6>
+  <h6 id="written-on-aug-16-2020"><em>Written on Aug 16 2020</em></h6>
+  <hr>
+  <h3 id="intro"><strong><em>Intro</em></strong></h3>
+  <p>So. You've most likely already heard of the massive cryptocurrency boom from around two years ago(at time of writing). You might be wondering,</p>
+  <blockquote>
+  <p>How does all this work?</p>
+  </blockquote>
+  <blockquote>
+  <p>Is it easy to do?</p>
+  </blockquote>
+  <blockquote>
+  <p>Could <em>I</em> make a cryptocurrency of my own?</p>
+  </blockquote>
+  <p>My answers to those questions are I Don't Really Know, Probably Not and Yes. That last one actually depends on your programming skill and your goals with this, but the following tutorial assumes that you know how to do these things is Python:</p>
+  <ol>
+  <li>Create Classes and methods</li>
+  <li>Create functions</li>
+  <li>Read and write files</li>
+  <li>Manipulate data in multiple ways</li>
+  <li>Use the following modules:</li>
+  </ol>
+  <ul>
+  <li>Datetime</li>
+  </ul>
+  <p>From what I've done, those are the only things you need to know to create a worthless cryptocurrency.</p>
+  <hr>
+  <h3 id="chapter-1-defining-your-cryptocurrency"><em>Chapter 1</em>: <strong>Defining your cryptocurrency</strong></h3>
+  <p>First thing you need to know: what defines your new, amazing cryptocurrency. This includes things like:</p>
+  <ul>
+  <li>How much real money a single token of <em>your</em> crypto is worth</li>
+  <li>Your logo ( <em>really</em> important )</li>
+  <li>How many decimal points can you have</li>
+  <li>Your symbol ( Bitcoin's is BTC )</li>
+  <li>How much of the token can be in circulation at once</li>
+  </ul>
+  <p>You might be wondering,</p>
+  <blockquote>
+  <p>But Mj, you said that this cryptocurrency would be worthless! why are we assigning a price to it?</p>
+  </blockquote>
+  <p>Well, it's mostly for fun. Imagining that your crypto actually has value drives you to go on.</p>
+  <p>The currency that <em>we</em> are going to make will have the following properties:</p>
+  <ul>
+  <li>1 Of our crypto is the same as 10 GBP  </li>
+  <li>Our crypto will have 7 decimal points  </li>
+  <li>Our crypto symbol will be SHC ( Sheep Coin )</li>
+  <li>There will be a maximum of 1 Million SheepCoins in circulation</li>
+  </ul>
+  <hr>
+  <h3 id="chapter-2-how-our-crypto-will-work"><em>Chapter 2</em>: <strong>How our crypto will work</strong></h3>
+  <p>So, you might have heard the word "Blockchain" thrown around a lot in the crypto business, and you might be wondering what one is. Well, simply explained, it's a publicly available chain of blocks of data like transactions and mining. This is what basically all cryptocurrencies are built on.  </p>
+  <p>Our cryptocurrency will consist of two of these blockchains: One for transactions, the other for mining.</p>
+  <h6 id="subchapter-21-mining"><em>SUBCHAPTER 2.1:</em> Mining</h6>
+  <p>Now, some of you may be thinking,</p>
+  <blockquote>
+  <p>What is this "mining" that you keep talking about?</p>
+  </blockquote>
+  <p>The answer to that is, well, complicated. I won't bother explaining since I don't want to get this chapter too long. <a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjMsJ-z0Z_rAhUNQxUIHVzcAjwQFjACegQICxAF&amp;url=https%3A%2F%2Fwww.webopedia.com%2FTERM%2FC%2Fcryptocurrency-mining.html&amp;usg=AOvVaw06xX2QWcZ7gGe6aY-ShSA_">This link should do nicely though.</a></p>
+  <p>Anyway, when a miner receives a request for calculating a bunch of important data for the economy of the crypto, we will have a one in twenty chance of them receiving 0.5 SheepCoin ( £5 ).</p>
+  <h6 id="subchapter-22-chain-optimization"><em>SUBCHAPTER 2.2:</em> Chain Optimization</h6>
+  <p>Since we are coding this in Python, which is interpreted, we have to take in account how slow this will really be if it becomes successful. This program would have to do hundreds of server-client connections to send blocks back and forth. Python isn't particularly quick compared to compiled languages like C. So we're going to need to keep a limit for how many blocks can be in a blockchain at once. <strong><em>Our crypto will have a limit of 200 blocks per chain.</em></strong> Here's how our limiting system will work:</p>
+  <ol>
+  <li>Server receives info for a block</li>
+  <li>Checks if block is transaction or mine</li>
+  <li>Appends block to required chain.</li>
+  <li>Checks if chain is now longer than 200.<br><em>If</em> <strong>True</strong> :<br>Deletes earliest block in chain.<br><em>If</em> <strong>False</strong> :<br>Continues as normal.</li>
+  </ol>
+  <hr>
+  <h2 id="chapter-3-block-structure"><em>Chapter 3</em>: <strong>Block Structure</strong></h2>
+  <p>Now, you might be wondering what our blocks will consist of.<br><br><em>Sorry for the abrupt end, but I want to work on the home page of the site first. I <strong>will</strong> be back and continue this tut.</em></p>
+</body>
