@@ -9,15 +9,15 @@ body {
   color: white;
   background-color: #15202B;
   font-family: segoi;
-  margin-left: 27;
   margin-bottom: 54;
 }
 
 a {color: #9cfff2; font-style: italic; text-decoration: none;}
-h1 {font-size: 34px; margin-top: 20}
-h3 {font-size: 25px;}
-h6 {font-size: 12px;}
+h1 {font-size: 34px; margin-top: 20;margin-left: 27;}
+h3 {font-size: 25px;margin-left: 27;}
+h6 {font-size: 12px;margin-left: 27;}
 header {background-color: black; padding: 20px; color: orange; font-family: vcr;}
+p {margin-left: 27;}
 
 td {color: orange;}
 p.headers {margin-left: 20; padding-left: 20;}
