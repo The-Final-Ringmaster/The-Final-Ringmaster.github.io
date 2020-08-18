@@ -16,7 +16,7 @@ a {color: #9cfff2; font-style: italic; text-decoration: none;}
 h1 {font-size: 34px; margin-top: 20;margin-left: 27;}
 h3 {font-size: 25px;margin-left: 27;}
 h6 {font-size: 12px;margin-left: 27;}
-header {background-color: black; padding: 20px; color: orange; font-family: vcr;}
+header {background-color: black; color: orange; font-family: vcr;}
 p {margin-left: 27;}
 
 td {color: orange;}
