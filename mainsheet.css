@@ -4,21 +4,18 @@ body {
   font-size: 16px;
   background: #002533;
 }
-
 h1, h2, h3 {
   color: teal;
   font-family: Courier New;
 }
-
 footer {
   font-color: #002533;
   font-family: Arial:;
   font-size: 12px;
   background: white;
 }
-
 button {
-  background-color: #505050; /* Green */
+  background-color: #505050;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -26,4 +23,10 @@ button {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
