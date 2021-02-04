@@ -1,0 +1,341 @@
+<html>
+<head>
+<title>FAsm Documentation</title>
+<link rel="stylesheet" type="text/css" href="../monosheet.css">
+</head>
+<body>
+<div>
+<h1>FAsm Documentation</h1>
+
+
+<h4>Table of contents:</h4>
+   <a href="#p-1">Part -1: Introduction</a>
+   <a href="#p0">Part 0 : The Basics</a>
+   <a href="#p1">Part 1 : Making Decisions</a>
+   <a href="#p2">Part 2 : More Data</a>
+      <a href="#p2a">Accumulator</a>
+      <a href="#p2b">Spare</a>
+   <a href="#p3">Part 3 : Labels and Subroutines</a>
+   <a href="#pE">Epilogue</a>
+
+
+<h2><a name="p-1">Part -1: Introduction</a></h2>
+
+FrostAssembly, more commonly referred to
+as FAsm, is a very obfuscated programming
+language that I (u/ringMaster1111) have
+created in Python. It is stack-based and
+uses Reverse Polish Notation. It was
+originally inspired by Forth, but when
+I saw the increasingly long syntax for if
+statements and functions, I decided to go
+my own way.
+FAsm has three storage devices:
+ - Stack       <a href="#p0">Part 0</a>
+ - Accumulator <a href="#p2a">Part 2</a>
+ - Spare       <a href="#p2b">Part 2</a>
+Read to find out more.
+
+
+<h2><a name="p0">Part 0: The Basics</a></h2>
+
+FAsm uses Reverse Polish Notation, meaning
+that the Operands go before the Operator.
+For example, writing 5 add 3 would look like
+this:
+ | 5 3 +
+
+FAsm uses a stack as it's primary form of
+data storage. A stack has two primary
+operations; PUSH and POP. Performing a
+PUSH will add an item to the end of the
+stack. Performing a POP will return the
+last PUSHed item, and remove that item
+from the stack.
+
+E. G.
+Stack:
+PUSH 5
+Stack: 5
+PUSH 3
+Stack: 5, 3
+POP
+Stack: 5
+
+To push a value to the stack in FAsm,
+you simply type the number. For example,
+pushing 5 would simply require you to
+type 5. This is where Reverse Polish
+Notation comes in. An example piece
+of code would be:
+ | 5 3 +
+
+First, the code PUSHes 5 to the stack.
+Next,  the code PUSHes 3 to the stack
+Finally, the plus symbol.
+Internally, plus will POP two values
+from the stack, add them together and
+PUSH the result back.
+As another example,
+ | 10 4 +
+
+Is equal to 10+4.
+
+You may have noticed that the previous
+code simply operates on values, but
+has no user inclusion. For this, we have
+the operators:
+ - "."
+ - ","
+
+"." will display a value as a number.
+"," will convert the value to ASCII
+and then display the resulting character.
+ | 65 .
+Would display the number 65, while
+ | 65 ,
+Would display the character "A".
+
+This still only allows for displaying
+information, and not letting the user
+do something. For this, we have the
+operator
+ | ;
+This operator takes user input, takes
+the first character and converts it
+to it's ASCII number, which is pushed
+to stack.
+
+ | ; 1 + ,
+The above programs takes input, and
+then gives the next ASCII character.
+For example, "A" would return "B"
+and "1" would return "2".
+
+Let's end on the "x" operator. It
+simply deletes the top value in
+stack.
+
+
+<h2><a name="p1">Part 1: Making decisions</a></h2>
+
+Currently, the path that our program takes
+is completely predefined and will always
+be the same. Let's change that. Introducing
+the logic operators:
+ - "="
+ - ">"
+ - "<"
+ - "?"
+ - "!"
+
+Let's start with "?". This is your main
+crutch when it comes to making decisions.
+If the latest stack value is not equal to
+zero, it will execute the following
+instruction. Otherwise, both the "?" and the
+next instruction are ignored. Combined with
+some of the techniques described in the
+following parts, the "?" operator is a
+truly powerful tool.
+
+Next, let's cover "!". If the "?" operator
+was this:
+if (POP!=0) {code}
+Then the "!" operator would be:
+if (POP==0) {code}
+
+Of course, we need a method of making
+checks before using "?" or "!". This is
+the purpose of the operators "=",">" &
+"<".
+
+"=" compares the previous two stack values.
+If they are equal, it PUSHes 1 to stack.
+Otherwise, it PUSHes 0.
+
+">" compares just like "=".
+If the first value is greater than the
+second, it PUSHes 1. Otherwise, it
+PUSHes 0.
+
+"<" is exactly the same as ">", except
+the first value has to be <em>less</em> than
+the second.
+
+Using these, comparisons are easy to implement.
+
+ | ; 64 > ? 66 ? ,
+The above program, although pretty useless,
+demonstrates the decision operators. First,
+it takes user input. Next, it makes a
+greater-than check. Then, if the check
+succeeded, the code displays the letter "B".
+
+Overall, It simply checks if the first letter
+of the input is, well, a letter.
+
+That's about it for basic decision making.
+
+
+<h2><a name="p2">Part 2: More Data</a></h2>
+
+As mentioned in <a href="#p-1">Part -1</a>, the stack is not the
+only form of storage in FAsm. There are two
+other containers for your data. These are:
+ - <a href="#p2a">The Accumulator</a>
+ - <a href="#p2b">The Spare</a>
+
+
+<h3><a name="p2a">The Accumulator</a></h3>
+
+The accumulator is the most versatile
+alternative form of storage. There are two
+operators for using the accumulator:
+ - "a"
+ - "p"
+ - "l"
+
+The "p" operator is what you use to change
+the contents of the accumulator. It is similar
+to a POP, except the result from the stack is
+put into the accumulator.
+
+The "a" operator simply PUSHes the value of
+the accummulator to stack. Keep in mind that
+when performing this, the accumulator does
+not get emptied. This allows for duplication:
+ | 6 p a a
+The above code will duplicate six and there
+will be two copies of it in the end.
+
+The "l" operator is a special one. It enables
+what's known as Accumulator Mode. This changes
+the states of the below operators:
+ - "?"
+ - "!"
+ - "."
+ - ","
+
+The decision operators, when in Accumulator Mode,
+check for the value of the accumulator and not
+for the latest value in stack.
+
+The display operators, when in Accumulator Mode,
+display the value in the accumulator and not in
+the stack.
+
+This allows you to store the results of a check
+in the accumulator, allowing you to freely push
+and pull values from stack in the decision
+operators without affecting their state.
+
+<h3><a name="p2b">The Spare</a></h3>
+
+The spare is intended for use in much smaller
+operations. You only have one operator for
+controlling the spare:
+ | s
+
+The "s" operator functions as two. When the
+spare is empty, which it is by default, it
+will operate like the "p" operator but pulls
+the value into the spare.
+If the spare already contains data, the "s"
+operator will PUSH it's value back on top
+of the stack and empty the spare itself.
+
+This allows for things such as safe duplication,
+which preserves the accumulators original value:
+ | 12 p  6  a s  p a a  s p
+The above program duplicates the number 6, yet
+at the end, the accumulator value of 12 is still
+retained.
+
+
+<h2><a name="p3">Part 3: Labels and Subroutines</a></h2>
+
+you may have noticed that we have not yet described
+any way to make loops or functions. This part will
+introduce you to labels, jumps and returns.
+
+The new operators we will use here are:
+ - "_%"
+ - ":%"
+ - "f%"
+
+Let's start with the "_" operator.
+
+This operator is used to make labels that you can
+jump to from any part of your code. Labels by
+themselves are ignored in code. The following is
+the syntax for making a new label:
+ | _labelname
+The length of the label is not defined. It can be
+anything you want.
+
+Let's move on to ":".
+
+This operator jumps to a label. The location of
+this label does not matter, it simply needs to be
+in the document.
+ | 0 _loop 1 + 5 = p x l ? :loop
+The above program will increment the counter until
+it is equal to 5.
+
+Finally, let's cover "f".
+
+This operator is very similar to the ":" operator,
+but with one key difference. When jumping to a label,
+this operator will also save a program location to
+return to when the "r" operator is called.
+Be careful though: If you don't structure your function
+definitions right, errors will happen. As an example:
+ | 65 fd 66 fd 67 fd _d , x r
+will bring up an error due to the fact that when it is
+done displaying "ABC", it will attempt to execute _d
+again due to the fact that it is next in the program.
+I recommend fixing it like so:
+ | 65 fd 66 fd 67 fd :end _d , x r _end
+Put all of your functions between ":end" and "_end".
+This will make it so that when the program eventually
+reaches the functions, it will jump straight to the end.
+
+
+<h2><a name="pE">Epilogue</a></h2>
+
+That about covers it for the important stuff. I worked
+pretty hard on the language and am tired, so updates
+won't be coming for a while.
+
+I think you can do quite a lot with this, especially
+considering languages that can compile to FAsm.
+For example, here is a basic Command Line:
+ :main
+
+ _c = p x r
+ _d , x r
+
+ _main ;
+ 65 fc l ? :pA
+ 66 fc l ? :pB
+ :error
+
+ _pA 67 fd :main
+ _pB 68 fd :main
+ _error 69 fd 82 fd 82 fd 79 fd 82 fd :main
+It only has two commands, "A" and "B", which
+display "C" and "D" respectively. However, I bet
+that someone would be able to make something more
+complicated.
+
+Also, if you want to do something more complicated
+with the language, study the "fasmlib.py" file,
+specifically the two arguments apart from "source"
+and what the function does with them. That should
+give you what you're looking for :P
+
+The End
+</div>
+</body>
+</html>
