@@ -11,13 +11,15 @@
   var ad;
   fetch("https://john.mondecitronne.com/embed?ref=miko1112.github.io/home")
   .then(resp=>resp.text())
-  .then(text=>{ad=text;});
-  var lines=ad.split("\n");
-  for (let i=0,i<lines.length,i++){
-    if(adrx.test(lines[i])){
-      ad=strx.exec(lines[i])[0];
+  .then(text=>{
+    ad=text;
+    var lines=ad.split("\n");
+    for (let i=0;i<lines.length;i++){
+      if(adrx.test(lines[i])){
+        ad=strx.exec(lines[i])[0];
+      }
     }
-  }
+  });
   
   const pagetext=`
        ___
