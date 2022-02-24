@@ -1,0 +1,53 @@
+<head>
+  <title>fragment's status</title>
+  <meta name="description" content="frag's status">
+  <meta name="">
+</head>
+<body>
+  <div id="content"></div>
+  <script>
+  const adrx=/^<a href="[^"]*" style="width:100%;height:100%">$/i;
+  const strx=/".*"/
+  var ad;
+  fetch("https://john.mondecitronne.com/embed?ref=miko1112.github.io/home")
+  .then(resp=>resp.text())
+  .then(text=>{ad=text;});
+  var lines=ad.split("\n");
+  for (let i=0,i<lines.length,i++){
+    if(adrx.test(lines[i])){
+      ad=strx.exec(lines[i])[0];
+    }
+  }
+  
+  const pagetext=`
+       ___
+      *...*                         |  ___   ___     ___   ___
+    *...#...*                       | /   \ /   \   /   \ /   \
+   *..#...#..*                      | #  /# #  /# # #  /# #  /#
+   *....#....*                      | # / # # / #   # / # # / #
+   *..#...#..*                      | #/  # #/  # # #/  # #/  #
+    *...#...*                       | \___/ \___/   \___/ \___/
+      *___*   \                     |
+               \                    | Temporal Offset Nil
+                My current location |            Commonly "GMT"
+                   7th Spheroid     |
+                     "Unport"       | (yes,  """""England""""")
+                                    |
+  ----------------------------------+--------------------------
+                                    |
+   "sleep"  These are lies          | Advertiser Space
+                       "wellbeing"  | 
+     "exercise"                     | ${ad}
+                 "company"          |
+            "non-bees"              |
+                /                   |
+               /                    |
+          _____                     |
+         | > < |                    +-----+
+         |     |<-This is your subconcious|
+         |  ^  |                    +-----+
+          ¯¯¯¯¯
+  `;
+  document.getElementById("content").innerHTML=pagetext;
+  </script>
+</body>
