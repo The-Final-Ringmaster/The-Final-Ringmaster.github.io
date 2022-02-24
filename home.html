@@ -20,37 +20,36 @@
         ad=strx.exec(lines[i])[0];
       }
     }
+    const pagetext=`
+         ___
+        *...*                         |  ___   ___     ___   ___
+      *...#...*                       | /   \\ /   \\   /   \\ /   \\
+     *..#...#..*                      | #  /# #  /# # #  /# #  /#
+     *....#....*                      | # / # # / #   # / # # / #
+     *..#...#..*                      | #/  # #/  # # #/  # #/  #
+       *...#...*                       | \\___/ \\___/   \\___/ \\___/
+        *___*   \\                     |
+                 \\                    | Temporal Offset Nil
+                  My current location |            Commonly "GMT"
+                     7th Spheroid     |
+                       "Unport"       | (yes,  """""England""""")
+                                      |
+    ----------------------------------+--------------------------
+                                      |
+     "sleep"  These are lies          | Advertiser Space
+                         "wellbeing"  | 
+       "exercise"                     | ${ad}
+                   "company"          |
+              "non-bees"              |
+                  /                   |
+                 /                    |
+            _____                     |
+           | > < |                    +-----+
+           |     |<-This is your subconcious|
+           |  ^  |                    +-----+
+            ¯¯¯¯¯
+    `;
+    document.getElementById("content").innerHTML=pagetext;
   });
-  
-  const pagetext=`
-       ___
-      *...*                         |  ___   ___     ___   ___
-    *...#...*                       | /   \\ /   \\   /   \\ /   \\
-   *..#...#..*                      | #  /# #  /# # #  /# #  /#
-   *....#....*                      | # / # # / #   # / # # / #
-   *..#...#..*                      | #/  # #/  # # #/  # #/  #
-    *...#...*                       | \\___/ \\___/   \\___/ \\___/
-      *___*   \\                     |
-               \\                    | Temporal Offset Nil
-                My current location |            Commonly "GMT"
-                   7th Spheroid     |
-                     "Unport"       | (yes,  """""England""""")
-                                    |
-  ----------------------------------+--------------------------
-                                    |
-   "sleep"  These are lies          | Advertiser Space
-                       "wellbeing"  | 
-     "exercise"                     | ${ad}
-                 "company"          |
-            "non-bees"              |
-                /                   |
-               /                    |
-          _____                     |
-         | > < |                    +-----+
-         |     |<-This is your subconcious|
-         |  ^  |                    +-----+
-          ¯¯¯¯¯
-  `;
-  document.getElementById("content").innerHTML=pagetext;
   </script>
 </body>
