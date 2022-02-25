@@ -1,13 +1,13 @@
 <head>
   <link rel="stylesheet" type="text/css" href="monosheet.css">
   <title>fragment's status</title>
-  <meta name="description" content="frag's status">
+  <meta name="description" content="various information">
   <meta name="">
 </head>
 <body>
   <div id="content"></div>
   <script>
-  const adrx=/^<a href="[^"]*" style="width:100%;height:100%">$/;
+  /*const adrx=/^<a href="[^"]*" style="width:100%;height:100%">$/;
   const strx=/".*"/
   var ad;
   fetch("https://john.mondecitronne.com/embed?ref=miko1112.github.io/home")
@@ -19,7 +19,7 @@
       if(adrx.test(lines[i])){
         ad=strx.exec(lines[i])[0];
       }
-    }
+    }*/
     const pagetext=`
          ___
         *...*                         |  ___   ___     ___   ___
@@ -38,16 +38,16 @@
                                       |
      "sleep"  These are lies          | Advertiser Space
                          "wellbeing"  | 
-       "exercise"                     | ${ad}
+       "exercise"                     | (currently defunct)
                    "company"          |
               "non-bees"              |
                   /                   |
                  /                    |
             _____                     |
-           | > < |                    +-----+
-           |     |<-This is your subconcious|
-           |  ^  |                    +-----+
-            ¯¯¯¯¯
+          \\| > < |/                   +------+
+           |  ^  |<-This is your subconscious|
+           |_____|                     +------+
+            /   \\
     `;
     document.getElementById("content").innerHTML=pagetext;
   });
