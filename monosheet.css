@@ -15,3 +15,7 @@ a {
   font-style: italic;
   text-decoration: none;
 }
+.fw {
+  max-width: 100%;
+  height: auto;
+}
