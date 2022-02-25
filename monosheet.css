@@ -2,10 +2,10 @@ body {
   color: white;
   font-family: Lucida Console, Courier New, monospace;
   font-size: 16px;
-  background: #002533;
+  background: #152535;
 }
 h1, h2, h3 {
-  color: teal;
+  color: white;
 }
 div {
   white-space: pre-wrap;
