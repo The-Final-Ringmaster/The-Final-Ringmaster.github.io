@@ -2,7 +2,7 @@ body {
   color: white;
   font-family: Lucida Console, Courier New, monospace;
   font-size: 16px;
-  background: #152535;
+  background: #550055;
 }
 h1, h2, h3 {
   color: white;
@@ -11,8 +11,7 @@ div {
   white-space: pre-wrap;
 }
 a {
-  color: lightblue;
-  font-style: italic;
+  color: #aa00ff;
   text-decoration: none;
 }
 .fw {
