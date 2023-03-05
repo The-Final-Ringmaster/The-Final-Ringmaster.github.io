@@ -14,7 +14,16 @@ a {
   color: #aa00ff;
   text-decoration: none;
 }
+a.cm {
+  color: #aaaacc;
+}
 .fw {
   max-width: 100%;
   height: auto;
+}
+
+.comment {
+  color: #aaaacc;
+  font-style: italic;
+  white-space: pre-wrap;
 }
